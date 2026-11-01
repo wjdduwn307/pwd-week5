@@ -1,4 +1,3 @@
-/* src/App.tsx */
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
@@ -10,8 +9,9 @@ import HomePage from './pages/HomePage';
 import ListPage from './pages/ListPage';
 import DetailPage from './pages/DetailPage';
 import PopularPage from './pages/PopularPage';
-import SubmitPage from './pages/SubmitPage';
 import AdminPage from './pages/AdminPage';
+import SubmissionsPage from './pages/SubmissionsPage';
+import SubmitPage from './pages/SubmitPage';
 
 // Components
 import Header from './components/Header';
@@ -43,11 +43,9 @@ function App() {
               <Route path="/list" element={<ListPage />} />
               <Route path="/restaurant/:id" element={<DetailPage />} />
               <Route path="/popular" element={<PopularPage />} />
-              <Route path="/submit" element={<SubmitPage />} />
-              <Route path="*" element={<NotFound />} />
-
-              <Route path="/submit" element={<SubmitPage />} />
               <Route path="/admin" element={<AdminPage />} />
+              <Route path="/submissions" element={<SubmissionsPage />} />
+              <Route path="/submit" element={<SubmitPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
