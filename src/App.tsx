@@ -1,5 +1,5 @@
 /* src/App.tsx */
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +11,7 @@ import ListPage from './pages/ListPage';
 import DetailPage from './pages/DetailPage';
 import PopularPage from './pages/PopularPage';
 import SubmitPage from './pages/SubmitPage';
+import AdminPage from './pages/AdminPage';
 
 // Components
 import Header from './components/Header';
@@ -32,7 +33,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <HashRouter>
         <GlobalStyles />
         <div className="app">
           <Header />
@@ -43,6 +44,10 @@ function App() {
               <Route path="/restaurant/:id" element={<DetailPage />} />
               <Route path="/popular" element={<PopularPage />} />
               <Route path="/submit" element={<SubmitPage />} />
+              <Route path="*" element={<NotFound />} />
+
+              <Route path="/submit" element={<SubmitPage />} />
+              <Route path="/admin" element={<AdminPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
@@ -62,7 +67,7 @@ function App() {
           pauseOnHover
           theme="light"
         />
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }
